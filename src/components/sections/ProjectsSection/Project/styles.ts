@@ -19,14 +19,18 @@ export const StudioItemContainer = styled.div`
   margin: 120px 0;
 
   .content {
-    width: 240px;
-    padding-top: 40px;
-    padding: 40px 60px 0 0;
+    width: 310px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 120px;
   }
 
   .image {
     position: relative;
-    width: 300px;
+    width: 430px;
+    height: 300px;
     & > div {
       margin: 0;
     }

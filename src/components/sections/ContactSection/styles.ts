@@ -30,6 +30,12 @@ export const Form = styled.div`
       border-radius: 10px;
       border: none;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+      &:focus {
+        outline: none;
+        border: none;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      }
     }
 
     .submit {

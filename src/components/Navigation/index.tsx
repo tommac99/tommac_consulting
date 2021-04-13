@@ -52,8 +52,17 @@ export const Navigation: FC = () => {
   return (
     <Container linkColor={linkColor}>
       <nav className="nav">
-        <div onClick={() => scroll.scrollToTop()} className="link">
-          {scrollYPosition}
+        <div
+          onClick={() =>
+            scroll.scrollToTop({
+              smooth: "easeInOutQuad",
+              duration: 1500,
+            })
+          }
+          className="link"
+        >
+          {/* {scrollYPosition} */}
+          Top
         </div>
         <Link
           className="link"
@@ -62,7 +71,7 @@ export const Navigation: FC = () => {
           spy={true}
           smooth={true}
           offset={-40}
-          duration={500}
+          duration={1500}
           // onSetActive={handleSetActive}
         >
           Studio
@@ -74,23 +83,22 @@ export const Navigation: FC = () => {
           spy={true}
           smooth={true}
           offset={20}
-          duration={500}
+          duration={1500}
           // onSetActive={handleSetActive}
         >
           Projects
         </Link>
-        <Link
+        <div
           className="link"
-          activeClass="active"
-          to="contact"
-          spy={true}
-          smooth={true}
-          offset={200}
-          duration={500}
-          // onSetActive={handleSetActive}
+          onClick={() =>
+            scroll.scrollToBottom({
+              smooth: "easeInOutQuad",
+              duration: 1500,
+            })
+          }
         >
           Contact
-        </Link>
+        </div>
       </nav>
     </Container>
   );

@@ -7,6 +7,8 @@ import {
   MountainsSVG,
   StarsSVG,
 } from "../../../assets/svg";
+import { Text } from "../../index";
+
 import { Container } from "./styles";
 
 export const HeaderSection = () => {
@@ -21,6 +23,10 @@ export const HeaderSection = () => {
       <Parallax y={[-20, 20]} className="mountains">
         <MountainsSVG width="100vw" />
       </Parallax>
+      {/* <Parallax y={[-100, 100]} className="title">
+        <Text variant="h1">Tommac</Text>
+        <Text variant="h1">Consulting</Text>
+      </Parallax> */}
       <Parallax y={[-30, 30]} className="moon">
         <MoonSVG width="100vw" />
       </Parallax>

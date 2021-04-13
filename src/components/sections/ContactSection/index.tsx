@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { Text } from "../../index";
 import { useForm } from "react-hook-form";
+import { init, sendForm } from "emailjs-com";
 
-import { StudioItem } from "./StudioItem";
 import cave from "../../../assets/images/cave.jpg";
 
 import { Container, Form } from "./styles";
@@ -15,6 +15,9 @@ type FormData = {
 };
 
 export const ContactSection: FC = () => {
+  const [sending, setSending] = useState(false);
+  const [sent, setSent] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -26,7 +29,29 @@ export const ContactSection: FC = () => {
       message: "",
     },
   });
-  const onSubmit = (data: any) => console.log(data);
+  init("user_NnJCgkfx8N3TSf5NdkCeM");
+  const onSubmit = (data: any) => {
+    setSending(true);
+    const form = document.querySelector("#contact-form") as HTMLFormElement;
+
+    sendForm("default_service", "template_wg0ducn", "#contact-form").then(
+      function (response) {
+        setSending(false);
+        if (form && form !== null) {
+          form.reset();
+        }
+      },
+      function (error) {
+        console.log("OOPS...", error);
+      }
+    );
+  };
+
+  const renderSendMessage = () => {
+    if (!sending || !sent) return "Send";
+    if (sending) return "Sending";
+    if (sent) return "Sent";
+  };
 
   return (
     <Container>
@@ -53,16 +78,16 @@ export const ContactSection: FC = () => {
             className="input"
             type="email"
             placeholder="Email"
-            {...register("email")}
+            {...register("email", { required: true })}
           />
           <br />
           <textarea
             className="input"
             placeholder="Message"
-            {...register("message")}
+            {...register("message", { max: 900 })}
           />
           <br />
-          <input className="submit" type="submit" />
+          <input className="submit" type="submit" value={renderSendMessage()} />
         </form>
       </Form>
     </Container>

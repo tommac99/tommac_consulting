@@ -30,4 +30,10 @@ export const Container = styled.div`
     position: absolute;
     bottom: 80px;
   }
+  .title {
+    position: absolute;
+    z-index: 0;
+    top: 4%;
+    left: 20%;
+  }
 `;
