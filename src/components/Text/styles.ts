@@ -7,7 +7,10 @@ interface ITextStyleProps {
   fontWeight: number | string;
   marginTop: number;
   marginBottom: number;
+  marginLeft: number;
+  marginRight: number;
   textAlign: string;
+  slab: boolean;
 }
 
 export const TextContainer = styled.div<ITextStyleProps>`
@@ -17,5 +20,8 @@ export const TextContainer = styled.div<ITextStyleProps>`
   font-weight: ${(props: ITextStyleProps) => props.fontWeight};
   margin-top: ${(props: ITextStyleProps) => props.marginTop}px;
   margin-bottom: ${(props: ITextStyleProps) => props.marginBottom}px;
+  margin-left: ${(props: ITextStyleProps) => props.marginLeft}px;
+  margin-right: ${(props: ITextStyleProps) => props.marginRight}px;
   text-align: ${(props: ITextStyleProps) => props.textAlign};
+  ${(props) => (props.slab ? "" : "font-family: 'Roboto'")}
 `;

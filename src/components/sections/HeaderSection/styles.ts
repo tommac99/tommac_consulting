@@ -32,8 +32,38 @@ export const Container = styled.div`
   }
   .title {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     top: 4%;
     left: 20%;
+  }
+  .subtitle {
+    position: absolute;
+    z-index: 1;
+    top: 24%;
+    left: 25%;
+  }
+`;
+
+export const MobileContainer = styled.div`
+  position: relative;
+  width: 100vw;
+  height: 80vh;
+  background: linear-gradient(0deg, #cc867f, #2d1b3b);
+
+  .title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .subtitle {
+    position: absolute;
+    top: 14vh;
+    left: 40%;
+  }
+
+  .svg {
+    position: absolute;
+    bottom: -2px;
   }
 `;

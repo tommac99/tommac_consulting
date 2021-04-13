@@ -6,12 +6,33 @@ import {
   MoonSVG,
   MountainsSVG,
   StarsSVG,
+  MobileCampingSVG,
 } from "../../../assets/svg";
+import { Layout } from "../../../constants";
 import { Text } from "../../index";
 
-import { Container } from "./styles";
+import { Container, MobileContainer } from "./styles";
 
 export const HeaderSection = () => {
+  if (Layout.window.width < 680) {
+    return (
+      <MobileContainer>
+        <div className="title">
+          <Text variant="h3" color="secondary">
+            Tommac
+          </Text>
+          <Text variant="h3" color="secondary" ml={10}>
+            Consulting
+          </Text>
+        </div>
+        <Text className="subtitle" variant="h1">
+          We create cool stuff.
+        </Text>
+        <MobileCampingSVG width="100vw" className="svg" />
+      </MobileContainer>
+    );
+  }
+
   return (
     <Container>
       <Parallax y={[-10, 10]} className="foreground">
@@ -23,10 +44,21 @@ export const HeaderSection = () => {
       <Parallax y={[-20, 20]} className="mountains">
         <MountainsSVG width="100vw" />
       </Parallax>
-      {/* <Parallax y={[-100, 100]} className="title">
-        <Text variant="h1">Tommac</Text>
-        <Text variant="h1">Consulting</Text>
-      </Parallax> */}
+      <Parallax y={[-100, 100]} className="title">
+        <div>
+          <Text variant="h3" color="secondary">
+            Tommac
+          </Text>
+          <Text variant="h3" color="secondary" ml={10}>
+            Consulting
+          </Text>
+        </div>
+      </Parallax>
+      <Parallax y={[-200, 200]} className="subtitle">
+        <div>
+          <Text variant="h2">We create cool stuff.</Text>
+        </div>
+      </Parallax>
       <Parallax y={[-30, 30]} className="moon">
         <MoonSVG width="100vw" />
       </Parallax>

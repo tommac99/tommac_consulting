@@ -10,8 +10,11 @@ interface ITextProps {
   align?: "left" | "center" | "right";
   mt?: number;
   mb?: number;
+  ml?: number;
+  mr?: number;
   className?: string;
   lineHeight?: boolean;
+  slab?: boolean;
 }
 
 const variants = {
@@ -25,9 +28,9 @@ const variants = {
 };
 
 const fontWeights = {
-  light: "400",
-  normal: "normal",
-  bold: "bold",
+  light: "300",
+  normal: "400",
+  bold: "700",
 };
 
 export const Text: FC<ITextProps> = ({
@@ -38,19 +41,25 @@ export const Text: FC<ITextProps> = ({
   align = "left",
   mt = 0,
   mb = 0,
+  ml = 0,
+  mr = 0,
   className,
   lineHeight,
+  slab = true,
 }) => {
   return (
     <TextContainer
       className={className}
       fontSize={variants[variant]}
-      lineHeight={lineHeight ? variants[variant] * 1.2 : variants[variant]}
+      lineHeight={lineHeight ? variants[variant] * 1.5 : variants[variant]}
       color={ThemeColor.text[color]}
       fontWeight={fontWeights[weight]}
       marginTop={mt}
       marginBottom={mb}
+      marginLeft={ml}
+      marginRight={mr}
       textAlign={align}
+      slab={slab}
     >
       {children}
     </TextContainer>

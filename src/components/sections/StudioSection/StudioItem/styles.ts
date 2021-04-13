@@ -9,6 +9,7 @@ export const StudioItemContainer = styled.div<{ index: number }>`
     (props.index + 1) % 2 === 0 ? "row-reverse" : "row"};
 
   .content {
+    height: 200px;
     width: 240px;
     ${(props) =>
       (props.index + 1) % 2 === 0

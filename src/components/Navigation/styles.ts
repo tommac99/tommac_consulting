@@ -45,8 +45,8 @@ export const Container = styled.div<{ linkColor: string }>`
           : "rgba(21, 28, 48,0.75)"};
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 500ms ease-in-out, background-color 500ms ease-in-out,
-      box-shadow 500ms ease-in-out;
+    transition: transform 150ms ease-in-out, background-color 150ms ease-in-out,
+      box-shadow 150ms ease-in-out;
   }
 
   .link:active {
@@ -56,5 +56,61 @@ export const Container = styled.div<{ linkColor: string }>`
         props.linkColor === "red"
           ? "rgba(175, 45, 73, 0.75)"
           : "rgba(1, 8, 28,0.75)"};
+  }
+
+  .profile {
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    width: 48px;
+    height: 48px;
+    padding: 1px;
+    border-radius: 24px;
+    background: ${ThemeColor.background.yellow};
+    box-shadow: 0px 0px 10px 0px rgba(1, 8, 28, 0.2);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: width 300ms ease-in-out;
+    cursor: pointer;
+
+    &.open {
+      width: 300px;
+    }
+
+    &.open .name {
+      transform: scale(1);
+    }
+
+    .name {
+      white-space: nowrap;
+      transform: scale(0);
+      transform-origin: left;
+      transition: transform 300ms ease-in-out;
+      transition-delay: 150ms;
+      margin-left: 10px;
+    }
+
+    &.open .pdf {
+      transform: scale(1);
+    }
+
+    .pdf {
+      transform: scale(0);
+      transition: transform 300ms ease-in-out;
+      transition-delay: 450ms;
+      margin-left: 20px;
+      img {
+        height: 36px;
+      }
+    }
+
+    & > img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 70%;
+    }
   }
 `;

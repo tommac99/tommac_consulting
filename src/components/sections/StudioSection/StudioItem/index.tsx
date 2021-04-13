@@ -19,7 +19,7 @@ export const StudioItem: FC<{ item: IStudioItem; index: number }> = ({
   const [hasEntered, setHasEntered] = useState(false);
 
   return (
-    <Waypoint bottomOffset={200} onEnter={() => setHasEntered(true)}>
+    <Waypoint bottomOffset={160} onEnter={() => setHasEntered(true)}>
       <StudioItemContainer index={index}>
         <div className="content">
           <Text variant="h3" color="secondary" mb={20} className="title">

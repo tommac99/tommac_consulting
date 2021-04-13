@@ -4,3 +4,4 @@ export { MoonSVG } from "./Moon";
 export { StarsSVG } from "./Stars";
 export { MountainsSVG } from "./Mountains";
 export { TentSVG } from "./Tent";
+export { MobileCampingSVG } from "./MobileCamping";

@@ -37,6 +37,7 @@ export const ContactSection: FC = () => {
     sendForm("default_service", "template_wg0ducn", "#contact-form").then(
       function (response) {
         setSending(false);
+        setSent(true);
         if (form && form !== null) {
           form.reset();
         }
@@ -61,34 +62,45 @@ export const ContactSection: FC = () => {
           Get In Touch
         </Text>
         <div className="line" />
-        <form
-          className="form"
-          id="contact-form"
-          onSubmit={handleSubmit(onSubmit)}
-        >
-          <input
-            className="input"
-            type="text"
-            placeholder="Name"
-            {...register("username")}
-          />
-          {errors.emailRequired && <span>This field is required</span>}
-          <br />
-          <input
-            className="input"
-            type="email"
-            placeholder="Email"
-            {...register("email", { required: true })}
-          />
-          <br />
-          <textarea
-            className="input"
-            placeholder="Message"
-            {...register("message", { max: 900 })}
-          />
-          <br />
-          <input className="submit" type="submit" value={renderSendMessage()} />
-        </form>
+        {sent && (
+          <Text variant="h3" align="center" mt={80}>
+            Thanks for reaching out!
+          </Text>
+        )}
+        {!sent && (
+          <form
+            className="form"
+            id="contact-form"
+            onSubmit={handleSubmit(onSubmit)}
+          >
+            <input
+              className="input"
+              type="text"
+              placeholder="Name"
+              {...register("username")}
+            />
+            {errors.emailRequired && <span>This field is required</span>}
+            <br />
+            <input
+              className="input"
+              type="email"
+              placeholder="Email"
+              {...register("email", { required: true })}
+            />
+            <br />
+            <textarea
+              className="input"
+              placeholder="Message"
+              {...register("message", { max: 900 })}
+            />
+            <br />
+            <input
+              className="submit"
+              type="submit"
+              value={renderSendMessage()}
+            />
+          </form>
+        )}
       </Form>
     </Container>
   );

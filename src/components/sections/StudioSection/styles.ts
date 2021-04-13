@@ -7,10 +7,11 @@ export const Container = styled.div`
 
 export const Studio = styled.div`
   width: 100vw;
+  margin-top: 80px;
 
   .line {
     width: 50vw;
-    height: 2px;
+    height: 1px;
     background: ${ThemeColor.background.yellow};
     margin: 0 auto;
   }

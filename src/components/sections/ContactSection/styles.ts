@@ -51,6 +51,10 @@ export const Form = styled.div`
       border: 2px solid ${ThemeColor.text.primary};
       cursor: pointer;
       border-radius: 10px;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 `;

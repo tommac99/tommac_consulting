@@ -13,7 +13,7 @@ import { Container, Studio } from "./styles";
 const studioData = {
   title: "The Studio",
   description:
-    "We are Garden, an award-winning studio focused on creating digital experiences. We employ all our knowledge to help our clients build their brands through interactivity.",
+    "We are Tommac Consulting, an almost-award-winning studio focused on creating digital experiences. We employ all our knowledge to help our clients build their brands through interactivity.",
   subtitle: "What We Do",
   studioItems: [
     {
@@ -62,11 +62,12 @@ export const StudioSection: FC = () => {
           align="center"
           lineHeight={true}
           className="description"
+          slab={false}
         >
           {studioData.description}
         </Text>
         <div className="line" />
-        <Text variant="h2" align="center" mt={80} mb={80}>
+        <Text variant="h2" align="center" mt={80}>
           {studioData.subtitle}
         </Text>
       </Studio>
