@@ -61,7 +61,7 @@ export const Navigation: FC = () => {
           to="studio"
           spy={true}
           smooth={true}
-          offset={50}
+          offset={-40}
           duration={500}
           // onSetActive={handleSetActive}
         >
@@ -73,7 +73,7 @@ export const Navigation: FC = () => {
           to="projects"
           spy={true}
           smooth={true}
-          offset={50}
+          offset={20}
           duration={500}
           // onSetActive={handleSetActive}
         >
@@ -85,7 +85,7 @@ export const Navigation: FC = () => {
           to="contact"
           spy={true}
           smooth={true}
-          offset={50}
+          offset={200}
           duration={500}
           // onSetActive={handleSetActive}
         >

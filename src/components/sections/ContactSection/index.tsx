@@ -1,31 +1,70 @@
 import { FC } from "react";
 import { Text } from "../../index";
+import { useForm } from "react-hook-form";
 
 import { StudioItem } from "./StudioItem";
 import cave from "../../../assets/images/cave.jpg";
 
-import { Container, Studio } from "./styles";
+import { Container, Form } from "./styles";
+
+type FormData = {
+  username: string;
+  email: string;
+  emailRequired: string;
+  message: string;
+};
 
 export const ContactSection: FC = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>({
+    defaultValues: {
+      username: "",
+      email: "",
+      message: "",
+    },
+  });
+  const onSubmit = (data: any) => console.log(data);
+
   return (
     <Container>
       <img src={cave} alt={cave} width="100%" />
-      {/* <Studio>
+      <Form>
         <Text variant="h1" align="center" mb={20}>
-          {studioData.title}
+          Get In Touch
         </Text>
         <div className="line" />
-        <Text variant="body1" align="center" className="description">
-          {studioData.description}
-        </Text>
-        <div className="line" />
-        <Text variant="h2" align="center" mt={80} mb={80}>
-          {studioData.subtitle}
-        </Text>
-      </Studio>
-      {studioData.studioItems.map((item) => {
-        return <StudioItem item={item} />;
-      })} */}
+        <form
+          className="form"
+          id="contact-form"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <input
+            className="input"
+            type="text"
+            placeholder="Name"
+            {...register("username")}
+          />
+          {errors.emailRequired && <span>This field is required</span>}
+          <br />
+          <input
+            className="input"
+            type="email"
+            placeholder="Email"
+            {...register("email")}
+          />
+          <br />
+          <textarea
+            className="input"
+            placeholder="Message"
+            {...register("message")}
+          />
+          <br />
+          <input className="submit" type="submit" />
+        </form>
+      </Form>
     </Container>
   );
 };
