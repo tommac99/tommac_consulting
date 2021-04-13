@@ -3,9 +3,12 @@ import { ThemeColor } from "../../../constants";
 
 export const Container = styled.div`
   width: 100vw;
+  min-height: 100vh;
+  padding-bottom: 120px;
+  background: ${ThemeColor.background.red};
 `;
 
-export const Studio = styled.div`
+export const Projects = styled.div`
   width: 100vw;
 
   .line {

@@ -1,39 +1,78 @@
-import { FC, useState } from "react";
-import { Waypoint } from "react-waypoint";
+import { FC } from "react";
+import { Text } from "../../index";
 
-import Lottie from "react-lottie";
-import DrawingLottie from "../../../assets/lottie/drawing.json";
+import drawingDraw from "../../../assets/lottie/drawingDraw.json";
+import devicesDraw from "../../../assets/lottie/devicesDraw.json";
+import ecomDraw from "../../../assets/lottie/ecomDraw.json";
+import appsDraw from "../../../assets/lottie/appsDraw.json";
 
-import { Container } from "./styles";
+import { StudioItem } from "./StudioItem";
+
+import { Container, Studio } from "./styles";
+
+const studioData = {
+  title: "The Studio",
+  description:
+    "We are Garden, an award-winning studio focused on creating digital experiences. We employ all our knowledge to help our clients build their brands through interactivity.",
+  subtitle: "What We Do",
+  studioItems: [
+    {
+      title: "Custom Websites",
+      description:
+        "Everything we make is unique. Every project is made according to the needs of the customer.",
+      image: drawingDraw,
+      width: 286,
+      height: 200,
+    },
+    {
+      title: "Mobile Designs",
+      description:
+        "Responsive design aimed for good readability and navigation on tablets and smartphones.",
+      image: devicesDraw,
+      width: 286,
+      height: 200,
+    },
+    {
+      title: "Ecommerce",
+      description: "Intuitive and easy to manage online stores.",
+      image: ecomDraw,
+      width: 286,
+      height: 200,
+    },
+    {
+      title: "Apps",
+      description: "App development for iOS and Android platforms.",
+      image: appsDraw,
+      width: 275,
+      height: 200,
+    },
+  ],
+};
 
 export const StudioSection: FC = () => {
-  const [hasEntered, setHasEntered] = useState(false);
-
   return (
     <Container>
-      <Waypoint
-        bottomOffset={200}
-        onEnter={() => setHasEntered(true)}
-        onLeave={() => setHasEntered(false)}
-      >
-        {/* <h1 style={{ background: "blue", height: 400 }}>
-          {hasEntered ? "HELLO WORLD" : "GOODBYE WORLD"}
-        </h1> */}
-        {hasEntered && (
-          <Lottie
-            height={400}
-            width={400}
-            options={{
-              autoplay: true,
-              loop: false,
-              animationData: DrawingLottie,
-              rendererSettings: {
-                preserveAspectRatio: "xMidYMid slice",
-              },
-            }}
-          />
-        )}
-      </Waypoint>
+      <Studio>
+        <Text variant="h1" align="center" mb={20}>
+          {studioData.title}
+        </Text>
+        <div className="line" />
+        <Text
+          variant="body1"
+          align="center"
+          lineHeight={true}
+          className="description"
+        >
+          {studioData.description}
+        </Text>
+        <div className="line" />
+        <Text variant="h2" align="center" mt={80} mb={80}>
+          {studioData.subtitle}
+        </Text>
+      </Studio>
+      {studioData.studioItems.map((item, index) => {
+        return <StudioItem item={item} index={index} />;
+      })}
     </Container>
   );
 };

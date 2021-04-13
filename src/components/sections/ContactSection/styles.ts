@@ -3,6 +3,8 @@ import { ThemeColor } from "../../../constants";
 
 export const Container = styled.div`
   width: 100vw;
+  min-height: 100vh;
+  background: ${ThemeColor.background.purple};
 `;
 
 export const Studio = styled.div`
