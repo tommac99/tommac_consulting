@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Navigation, Text } from "../../components";
+import React from "react";
+import { Navigation } from "../../components";
 import { HeaderSection, StudioSection } from "../../components/sections";
 import { Element, Link } from "react-scroll";
 import { Container } from "./styles";

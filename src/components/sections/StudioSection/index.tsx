@@ -10,7 +10,6 @@ import appsDraw from "../../../assets/lottie/appsDraw.json";
 import { StudioItem } from "./StudioItem";
 
 import { Container, Studio, MobileStudio } from "./styles";
-import { Layout } from "../../../constants";
 
 const studioData = {
   title: "The Studio",
