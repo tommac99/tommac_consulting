@@ -25,6 +25,7 @@ export const Form = styled.div`
 
     .input {
       width: calc(100% - 32px);
+      max-width: calc(100% - 32px);
       margin: 10px 0;
       padding: 8px 16px;
       border-radius: 10px;

@@ -17,7 +17,6 @@ const useContextFactory = <T extends unknown>(
     return ctx;
   };
 };
-
 export const useScrollContext = useContextFactory(
   "ScrollContext",
   ScrollContext

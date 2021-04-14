@@ -1,5 +1,6 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import { Text } from "../../index";
+import { useMediaQuery } from "@react-hook/media-query";
 
 import drawingDraw from "../../../assets/lottie/drawingDraw.json";
 import devicesDraw from "../../../assets/lottie/devicesDraw.json";
@@ -8,7 +9,8 @@ import appsDraw from "../../../assets/lottie/appsDraw.json";
 
 import { StudioItem } from "./StudioItem";
 
-import { Container, Studio } from "./styles";
+import { Container, Studio, MobileStudio } from "./styles";
+import { Layout } from "../../../constants";
 
 const studioData = {
   title: "The Studio",
@@ -50,6 +52,37 @@ const studioData = {
 };
 
 export const StudioSection: FC = () => {
+  const matches = useMediaQuery("only screen and (max-width: 680px)");
+
+  if (matches) {
+    return (
+      <Container>
+        <MobileStudio>
+          <Text variant="h1" align="center" mb={20}>
+            {studioData.title}
+          </Text>
+          <div className="line" />
+          <Text
+            variant="body1"
+            align="center"
+            lineHeight={true}
+            className="description"
+            slab={false}
+          >
+            {studioData.description}
+          </Text>
+          <div className="line" />
+          <Text variant="h2" align="center" mt={80}>
+            {studioData.subtitle}
+          </Text>
+        </MobileStudio>
+        {studioData.studioItems.map((item, index) => {
+          return <StudioItem item={item} index={index} />;
+        })}
+      </Container>
+    );
+  }
+
   return (
     <Container>
       <Studio>

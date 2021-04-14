@@ -59,3 +59,54 @@ export const StudioItemContainer = styled.div`
     border-radius: 10px;
   }
 `;
+
+export const MobileStudioItemContainer = styled.div`
+  width: 100vw;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin: 40px 0;
+
+  .content {
+    margin: 40px auto 0 auto;
+    width: 320px;
+    height: 222px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .image {
+    margin: 40px auto 0 auto;
+    position: relative;
+    width: 320px;
+    height: 222px;
+    & > div {
+      margin: 0;
+    }
+  }
+  .example {
+    position: absolute;
+    top: 31px;
+    left: 1px;
+    height: 189px;
+    width: 315px;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transform: scale(0);
+    animation: 300ms ${fadeIn} 600ms ease-in-out forwards;
+  }
+
+  .btn {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 16px 24px;
+    border: 2px solid ${ThemeColor.text.primary};
+    cursor: pointer;
+    border-radius: 10px;
+  }
+`;

@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { Text } from "../../index";
 import { useForm } from "react-hook-form";
 import { init, sendForm } from "emailjs-com";
+import { useMediaQuery } from "@react-hook/media-query";
 
 import cave from "../../../assets/images/cave.jpg";
 
@@ -17,6 +18,7 @@ type FormData = {
 export const ContactSection: FC = () => {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const matches = useMediaQuery("only screen and (max-width: 680px)");
 
   const {
     register,
@@ -69,6 +71,10 @@ export const ContactSection: FC = () => {
         )}
         {!sent && (
           <form
+            style={{
+              padding: matches ? "0 20px" : "",
+              width: matches ? "calc(100% - 40px)" : "",
+            }}
             className="form"
             id="contact-form"
             onSubmit={handleSubmit(onSubmit)}

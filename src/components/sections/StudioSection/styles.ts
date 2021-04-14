@@ -21,3 +21,20 @@ export const Studio = styled.div`
     margin: 40px auto;
   }
 `;
+
+export const MobileStudio = styled.div`
+  width: 100vw;
+  margin-top: 160px;
+
+  .line {
+    width: 80vw;
+    height: 1px;
+    background: ${ThemeColor.background.yellow};
+    margin: 0 auto;
+  }
+
+  .description {
+    width: 80vw;
+    margin: 40px auto;
+  }
+`;

@@ -8,13 +8,15 @@ import {
   StarsSVG,
   MobileCampingSVG,
 } from "../../../assets/svg";
-import { Layout } from "../../../constants";
 import { Text } from "../../index";
+import { useMediaQuery } from "@react-hook/media-query";
 
 import { Container, MobileContainer } from "./styles";
 
 export const HeaderSection = () => {
-  if (Layout.window.width < 680) {
+  const matches = useMediaQuery("only screen and (max-width: 680px)");
+
+  if (matches) {
     return (
       <MobileContainer>
         <div className="title">
